@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "package": "bee.ghostly.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "AbstractContainerMenuMixin",
+    "AttackRangeMixin",
+    "EntityMixin",
+    "ExampleMixin",
+    "PlayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "GuiMixin"
+  ]
+}
