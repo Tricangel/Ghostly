@@ -1,29 +1,30 @@
 package bee.ghostly.mixin;
 
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.item.ItemStack;
-import org.spongepowered.asm.mixin.Final;
+import bee.ghostly.util.GhostUtil;
+import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Inventory.class)
+@Mixin(Player.class)
 public abstract class PlayerMixin {
 
-    @Shadow
-    @Final
-    private NonNullList<ItemStack> items;
+    @Inject(at = @At(value = "HEAD"), method = "isPickable", cancellable = true)
+    private void init(CallbackInfoReturnable<Boolean> cir) {
 
-    @Inject(at = @At(value = "HEAD"), method = "getFreeSlot", cancellable = true)
-    private void init(CallbackInfoReturnable<Integer> cir) {
-
-        if (items.getFirst().isEmpty()) {
-            cir.setReturnValue(0);
-        } else cir.setReturnValue(-1);
+        if ((Player) (Object) this instanceof Player player && GhostUtil.isGhost(player)) {
+            cir.setReturnValue(false);
+        }
 
     }
 
+    @Inject(at = @At(value = "HEAD"), method = "isInvulnerableTo", cancellable = true)
+    private void damager(CallbackInfoReturnable<Boolean> cir) {
+
+        if ((Player) (Object) this instanceof Player player && GhostUtil.isGhost(player)) {
+            cir.setReturnValue(true);
+        }
+
+    }
 }

@@ -1,4 +1,4 @@
-package bee.ghostly.mixin;
+package bee.ghostly.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;

@@ -19,6 +19,8 @@ public abstract class AbstractContainerMenuMixin {
     @Inject(at = @At(value = "HEAD"), method = "addStandardInventorySlots", cancellable = true)
     private void init(Container container, int left, int top, CallbackInfo ci) {
 
+
+
         this.addSlot(new Slot(container, 0, 8 + (4 * 18), top));
 		ci.cancel();
 

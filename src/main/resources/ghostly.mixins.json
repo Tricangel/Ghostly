@@ -4,10 +4,11 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "AbstractContainerMenuMixin",
-    "AttackRangeMixin",
-    "EntityMixin",
-    "ExampleMixin",
-    "PlayerMixin"
+    "InventoryMixin",
+    "PlayerMixin",
+    "client.AttackRangeMixin",
+    "client.AvatarRendererMixin",
+    "client.MinecraftMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -16,6 +17,8 @@
     "requireAnnotations": true
   },
   "client": [
-    "GuiMixin"
+    "client.GuiMixin",
+    "client.LivingEntityRendererMixin",
+    "client.LocalPlayerMixin"
   ]
 }

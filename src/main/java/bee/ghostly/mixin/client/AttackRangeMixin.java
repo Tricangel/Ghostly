@@ -1,11 +1,10 @@
-package bee.ghostly.mixin;
+package bee.ghostly.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.component.AttackRange;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -23,7 +22,7 @@ public abstract class AttackRangeMixin {
     private HitResult init(HitResult original, Entity attacker, float partial) {
 
         if (original instanceof EntityHitResult) {
-            if (attacker instanceof Player player) {
+            if (attacker instanceof Player) {
                 Vec3 eyeGaze = attacker.getHeadLookAngle();
                 Vec3 missPosition = attacker.getEyePosition(partial).add(eyeGaze);
                 return BlockHitResult.miss(missPosition, Direction.getApproximateNearest(eyeGaze), BlockPos.containing(missPosition));
