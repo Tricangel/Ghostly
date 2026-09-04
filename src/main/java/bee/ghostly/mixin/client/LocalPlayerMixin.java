@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public abstract class LocalPlayerMixin {
 
     @ModifyExpressionValue(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/Vec3;distanceToSqr(Lnet/minecraft/world/phys/Vec3;)D"), method = "pick")
-    private static double init(double original, Entity cameraEntity) {
+    private static double pick(double original, Entity cameraEntity) {
 
         if (GhostUtil.isGhost(cameraEntity)) {
             return 1000;

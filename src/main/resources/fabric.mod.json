@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"bee.ghostly.GhostlyDataGenerator"
+		],
+		"client": [
+			"bee.ghostly.GhostlyClient"
 		]
 	},
 	"mixins": [

@@ -1,4 +1,4 @@
-package bee.ghostly.screen;
+package bee.ghostly.client.screen;
 
 import bee.ghostly.Ghostly;
 import net.minecraft.client.Minecraft;

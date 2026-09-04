@@ -5,10 +5,8 @@
   "mixins": [
     "AbstractContainerMenuMixin",
     "InventoryMixin",
-    "PlayerMixin",
-    "client.AttackRangeMixin",
-    "client.AvatarRendererMixin",
-    "client.MinecraftMixin"
+    "ItemEntityMixin",
+    "PlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -19,6 +17,7 @@
   "client": [
     "client.GuiMixin",
     "client.LivingEntityRendererMixin",
-    "client.LocalPlayerMixin"
+    "client.LocalPlayerMixin",
+    "client.MinecraftMixin"
   ]
 }

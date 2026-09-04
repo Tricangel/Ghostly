@@ -1,5 +1,7 @@
 package bee.ghostly.mixin;
 
+import bee.ghostly.util.GhostUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.world.Container;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
@@ -17,12 +19,14 @@ public abstract class AbstractContainerMenuMixin {
     protected abstract Slot addSlot(Slot slot);
 
     @Inject(at = @At(value = "HEAD"), method = "addStandardInventorySlots", cancellable = true)
-    private void init(Container container, int left, int top, CallbackInfo ci) {
+    private void addStandardInventorySlots(Container container, int left, int top, CallbackInfo ci) {
 
 
 
-        this.addSlot(new Slot(container, 0, 8 + (4 * 18), top));
-		ci.cancel();
+        if (GhostUtil.isGhostClient(Minecraft.getInstance())) {
+            this.addSlot(new Slot(container, 0, 8 + (4 * 18), top));
+            ci.cancel();
+        }
 
     }
 

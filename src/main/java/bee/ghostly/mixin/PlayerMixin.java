@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class PlayerMixin {
 
     @Inject(at = @At(value = "HEAD"), method = "isPickable", cancellable = true)
-    private void init(CallbackInfoReturnable<Boolean> cir) {
+    private void isPickable(CallbackInfoReturnable<Boolean> cir) {
 
         if ((Player) (Object) this instanceof Player player && GhostUtil.isGhost(player)) {
             cir.setReturnValue(false);
@@ -20,7 +20,7 @@ public abstract class PlayerMixin {
     }
 
     @Inject(at = @At(value = "HEAD"), method = "isInvulnerableTo", cancellable = true)
-    private void damager(CallbackInfoReturnable<Boolean> cir) {
+    private void isInvulnerableTo(CallbackInfoReturnable<Boolean> cir) {
 
         if ((Player) (Object) this instanceof Player player && GhostUtil.isGhost(player)) {
             cir.setReturnValue(true);

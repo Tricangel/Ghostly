@@ -1,7 +1,7 @@
 package bee.ghostly.registry;
 
 import bee.ghostly.Ghostly;
-import bee.ghostly.screen.GhostInventoryMenu;
+import bee.ghostly.client.screen.GhostInventoryMenu;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlag;
