@@ -30,7 +30,7 @@ public abstract class GuiMixin {
 
     @WrapMethod(method = "extractSlot")
     private void extractSlot(GuiGraphicsExtractor graphics, int x, int y, DeltaTracker deltaTracker, Player player, ItemStack itemStack, int seed, Operation<Void> original) {
-        if (GhostUtil.isGhostClient(minecraft)) {
+        if (GhostUtil.isGhostClient(minecraft) && seed < 9) {
             original.call(graphics, graphics.guiWidth() / 2 - 8, y, deltaTracker, player, itemStack, seed);
         }
         else original.call(graphics, x, y, deltaTracker, player, itemStack, seed);

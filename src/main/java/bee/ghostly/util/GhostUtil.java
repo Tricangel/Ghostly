@@ -40,7 +40,7 @@ public class GhostUtil {
 
         if (!(entity instanceof Player player)) return false;
 
-        return player.getAttachedOrSet(SlopAttachments.GHOST, false)    ;
+        return !player.isCreative() && player.getAttachedOrSet(SlopAttachments.GHOST, false);
 
     }
 
